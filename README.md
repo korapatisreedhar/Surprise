@@ -26,3 +26,4 @@ This is a static site; Netlify does not need to run Flask or a build command.
 - For a Git-connected deploy where the repository root is the parent folder, set the base directory to `love-surprise-site`. Leave the build command empty and use `.` as the publish directory. If this folder is the repository root, the settings in `netlify.toml` already specify the publish directory.
 
 Keep `index.html`, `styles.css`, `fireworks.css`, and `script.js` together in the published directory. Flask is only used for local development.
+"# Surprise" 
