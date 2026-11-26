@@ -1,0 +1,40 @@
+#fireworks {
+  z-index: 2;
+  opacity: 1;
+  mix-blend-mode: screen;
+}
+
+.screen {
+  z-index: auto;
+  isolation: auto;
+}
+
+.screen > :not(.stars):not(.content-stars) {
+  position: relative;
+  z-index: 2;
+}
+
+#surprise-screen > .birthday-stage {
+  z-index: auto;
+  isolation: auto;
+}
+
+.birthday-stage .ceiling-lights,
+.birthday-stage .hanging-lights,
+.birthday-stage .wall-lamp,
+.birthday-stage .dancer-scene {
+  z-index: 3;
+}
+
+.stars,
+.content-stars {
+  z-index: 0;
+}
+
+.birthday-screen {
+  background: radial-gradient(ellipse at 50% 48%, #21152840 0%, #100d1b32 48%, #07071125 100%);
+}
+
+.surprise-screen {
+  background: linear-gradient(180deg, #100c1975, #0b0a1285);
+}

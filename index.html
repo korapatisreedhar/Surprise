@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080711" />
+  <meta name="description" content="A little surprise, made with love." />
+  <title>A Little Surprise ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fireworks.css" />
+</head>
+<body>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <main id="lock-screen" class="screen birthday-screen">
+    <div class="stars" aria-hidden="true"></div>
+    <section class="birthday-card" aria-label="Birthday surprise passcode">
+      <div class="birthday-art" aria-hidden="true">
+        <span class="paper-tape"></span>
+        <span class="art-sparkle sparkle-one">✦</span>
+        <span class="art-sparkle sparkle-two">✧</span>
+        <div class="keepsake-heart">
+          <span class="heart-shape">♥</span>
+          <div class="birthday-mascots"><span>🐻</span><span>🐻</span></div>
+          <span class="tiny-cake">🎂</span>
+        </div>
+        <div class="art-caption">
+          <span>A LITTLE KEEPSAKE</span>
+          <strong>Made just for you</strong>
+        </div>
+      </div>
+      <div class="passcode-panel">
+        <span class="eyebrow">YOUR BIRTHDAY SURPRISE</span>
+        <h1>Enter a passcode</h1>
+        <p class="passcode-hint">Four little numbers unlock your gift.</p>
+        <div id="pin-display" class="pin-display" role="group" aria-label="4-digit passcode">
+          <span class="pin-slot" data-pin-index="0" aria-hidden="true"></span>
+          <span class="pin-slot" data-pin-index="1" aria-hidden="true"></span>
+          <span class="pin-slot" data-pin-index="2" aria-hidden="true"></span>
+          <span class="pin-slot" data-pin-index="3" aria-hidden="true"></span>
+        </div>
+        <div id="pin-keypad" class="pin-keypad" aria-label="Numeric keypad">
+          <button type="button" class="pin-key" data-key="1">1</button>
+          <button type="button" class="pin-key" data-key="2">2</button>
+          <button type="button" class="pin-key" data-key="3">3</button>
+          <button type="button" class="pin-key" data-key="4">4</button>
+          <button type="button" class="pin-key" data-key="5">5</button>
+          <button type="button" class="pin-key" data-key="6">6</button>
+          <button type="button" class="pin-key" data-key="7">7</button>
+          <button type="button" class="pin-key" data-key="8">8</button>
+          <button type="button" class="pin-key" data-key="9">9</button>
+          <button type="button" class="pin-key utility-key" data-key="clear" aria-label="Clear passcode">*</button>
+          <button type="button" class="pin-key" data-key="0">0</button>
+          <button type="button" class="pin-key utility-key" data-key="submit" aria-label="Enter passcode">#</button>
+        </div>
+        <p id="pin-feedback" class="pin-feedback" role="status" aria-live="polite">Type the birthday code.</p>
+      </div>
+    </section>
+    <div class="bottom-note">A SURPRISE, SEALED WITH LOVE ✦</div>
+  </main>
+
+  <main id="surprise-screen" class="screen surprise-screen hidden">
+    <section class="birthday-stage" aria-label="Birthday celebration">
+      <div class="ceiling-lights" aria-hidden="true">
+        <span style="--delay:0s"></span><span style="--delay:.12s"></span><span style="--delay:.24s"></span><span style="--delay:.36s"></span>
+        <span style="--delay:.48s"></span><span style="--delay:.6s"></span><span style="--delay:.72s"></span><span style="--delay:.84s"></span>
+        <span style="--delay:.96s"></span><span style="--delay:1.08s"></span><span style="--delay:1.2s"></span><span style="--delay:1.32s"></span>
+        <span style="--delay:1.44s"></span><span style="--delay:1.56s"></span><span style="--delay:1.68s"></span><span style="--delay:1.8s"></span>
+      </div>
+      <div class="hanging-lights" aria-hidden="true">
+        <span class="hanging-lamp" style="--delay:.55s"><i></i></span>
+        <span class="hanging-lamp" style="--delay:.9s"><i></i></span>
+        <span class="hanging-lamp" style="--delay:1.25s"><i></i></span>
+      </div>
+      <div class="wall-lamp wall-lamp-left" aria-hidden="true"><i></i></div>
+      <div class="wall-lamp wall-lamp-right" aria-hidden="true"><i></i></div>
+      <div class="focused-spotlight" aria-hidden="true"></div>
+      <div class="party-glow" aria-hidden="true"></div>
+      <div class="party-banner" aria-label="Happy Birthday">
+        <span aria-hidden="true">✦</span>
+        <strong>HAPPY BIRTHDAY</strong>
+        <span aria-hidden="true">✦</span>
+      </div>
+      <button id="lights-switch" class="lights-switch" type="button" aria-pressed="false">
+        <span class="switch-icon" aria-hidden="true">⏻</span>
+        <span>Switch on the lights</span>
+      </button>
+      <div class="birthday-stage-copy">
+        <span class="stage-eyebrow">A LITTLE SURPRISE, JUST FOR YOU</span>
+        <h1>Happy Birthday, Dear!</h1>
+        <p>Make a wish. This moment is all yours.</p>
+      </div>
+      <div class="dancer-scene dancer-scene-girl" aria-hidden="true">
+        <div class="dancer-shadow"></div>
+        <div class="dancer">
+          <span class="dancer-leg leg-left"></span>
+          <span class="dancer-leg leg-right"></span>
+          <span class="dancer-arm arm-left"></span>
+          <span class="dancer-arm arm-right"></span>
+          <span class="dancer-body"></span>
+          <span class="dancer-head"><i></i><b></b></span>
+          <span class="dancer-face"><i></i><i></i><b></b></span>
+        </div>
+      </div>
+      <div class="dancer-scene dancer-scene-boy" aria-hidden="true">
+        <div class="dancer-shadow"></div>
+        <div class="dancer">
+          <span class="dancer-leg leg-left"></span>
+          <span class="dancer-leg leg-right"></span>
+          <span class="dancer-arm arm-left"></span>
+          <span class="dancer-arm arm-right"></span>
+          <span class="dancer-body"></span>
+          <span class="dancer-head"><i></i><b></b></span>
+          <span class="dancer-face"><i></i><i></i><b></b></span>
+        </div>
+      </div>
+      <div class="drummer-group" aria-hidden="true">
+        <div class="drummer"><span class="drummer-head"></span><span class="drummer-body"></span><span class="drummer-arm"></span><span class="drum"></span></div>
+        <div class="drummer"><span class="drummer-head"></span><span class="drummer-body"></span><span class="drummer-arm"></span><span class="drum"></span></div>
+        <div class="drummer"><span class="drummer-head"></span><span class="drummer-body"></span><span class="drummer-arm"></span><span class="drum"></span></div>
+      </div>
+      <p class="scroll-cue">A little more waiting below <span>↓</span></p>
+    </section>
+    <div id="celebration-content" class="celebration-content hidden">
+      <header class="hero">
+        <span class="eyebrow">TODAY IS ALL ABOUT YOU</span>
+        <h2 class="birthday-content-title">A birthday full of love <span>♥</span></h2>
+        <p class="intro">I hope this little corner makes you feel as special as you make everyone around you feel.</p>
+      </header>
+      <section class="message-card">
+        <p class="script">For you, on your birthday,</p>
+        <p id="main-message">You have a beautiful way of making ordinary days feel brighter. I hope the year ahead brings you gentle mornings, unexpected joy, and every good thing your heart has been wishing for. Thank you for being you. The world is luckier with you in it, and so am I. Happy birthday, dear. ❤️</p>
+        <p class="signature">— With all my love, always</p>
+      </section>
+      <section class="gallery-section">
+        <div class="section-heading">
+          <div><span class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</span><h2>Scratch to reveal 📸</h2></div>
+          <label class="upload-button">＋ Add photos<input id="photo-upload" type="file" accept="image/*" multiple hidden></label>
+        </div>
+        <div id="gallery" class="gallery scratch-gallery">
+          <div class="scratch-empty"><span>✦</span><p>Add photos to create your scratch cards.</p></div>
+        </div>
+        <p id="gallery-hint" class="gallery-hint">Choose your photos above, then rub each card to uncover a memory. Photos stay in this browser session.</p>
+      </section>
+      <footer>Made with lots of love <span>♥</span></footer>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
