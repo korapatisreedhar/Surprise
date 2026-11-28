@@ -377,8 +377,9 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[role="button"]:focus
 .viewer-previous{grid-column:1}.viewer-next{grid-column:3}
 .viewer-count{grid-column:1/-1;grid-row:2;margin:0;color:#cdb8c0;text-align:center;font-size:.82rem}
 .music-player{position:relative;display:grid;grid-template-columns:auto minmax(150px,1fr) auto auto minmax(120px,190px) auto;align-items:center;gap:16px;width:min(100%,900px);margin:clamp(68px,9vw,110px) auto;padding:22px 24px;border:1px solid #eed39b55;border-radius:22px;background:linear-gradient(120deg,#301726e8,#17111fef);box-shadow:0 22px 65px #0008,0 0 32px #e8be7220;backdrop-filter:blur(16px)}
-.music-orbit{display:grid;place-items:center;width:52px;height:52px;border:1px solid #f1d291;border-radius:50%;background:radial-gradient(circle,#b4496a,#3a1936);color:#ffe0a1;box-shadow:0 0 22px #ef9eb655}
+.music-orbit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:2px;place-items:stretch;overflow:hidden;box-sizing:border-box;width:52px;height:52px;padding:3px;border:1px solid #f1d291;border-radius:50%;background:radial-gradient(circle,#b4496a,#3a1936);color:#ffe0a1;box-shadow:0 0 22px #ef9eb655}
 .music-orbit span{font-size:1.6rem}
+.music-orbit img{width:100%;height:100%;border-radius:3px;object-fit:cover}
 .music-copy{display:grid;gap:4px;min-width:0}
 .music-copy .eyebrow{color:#e9be8f;font-size:.54rem;letter-spacing:.15em}
 .music-copy strong{overflow:hidden;color:#fff0e4;text-overflow:ellipsis;white-space:nowrap;font:500 1.1rem 'Playfair Display',serif}
@@ -397,6 +398,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[role="button"]:focus
 .final-surprise{position:relative;display:grid;justify-items:center;overflow:hidden;width:min(100%,960px);min-height:560px;margin:clamp(90px,13vw,150px) auto 70px;padding:clamp(45px,9vw,92px) clamp(22px,7vw,72px);border:1px solid #e6c78266;border-radius:30px;background:radial-gradient(ellipse at 50% 47%,#54213e 0%,#211222 46%,#09070e 82%);box-shadow:0 30px 90px #0009;text-align:center}
 .final-surprise::before{position:absolute;inset:12px;border:1px solid #ffe7b030;border-radius:24px;content:"";pointer-events:none}
 .final-surprise .eyebrow,.final-surprise h2,.final-surprise p,.final-surprise button{position:relative;z-index:1}
+.final-note-photo{position:relative;z-index:1;width:84px;height:84px;margin:0 0 8px;border:2px solid #f0d7a2;border-radius:50%;object-fit:cover;box-shadow:0 8px 26px #0008,0 0 22px #e979a155}
 .final-surprise .eyebrow{margin-top:25px;color:#f0d7a2}
 .final-surprise h2{max-width:720px;margin:22px auto;color:#fff1df;font:500 clamp(1.9rem,5vw,3.3rem)/1.2 'Playfair Display',serif;text-shadow:0 0 28px #f6d38d38}
 .final-surprise>p{max-width:640px;color:#e7d0d7;font:1rem/1.8 'DM Sans',sans-serif}

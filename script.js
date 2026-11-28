@@ -568,8 +568,10 @@ const musicToggle = document.getElementById('music-toggle');
 const musicTitle = document.getElementById('music-title');
 const chooseMusicButton = document.getElementById('choose-music-button');
 const musicStatus = document.getElementById('music-status');
+const defaultMusicUrl = 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6d/5a/f1/6d5af141-475c-7404-495c-0ef55283457c/mzaf_3028662401385709025.plus.aac.p.m4a';
 let chosenMusicUrl = '';
 
+birthdayAudio.src = defaultMusicUrl;
 chooseMusicButton.addEventListener('click', () => musicUpload.click());
 musicUpload.addEventListener('change', (event) => {
   const file = event.target.files?.[0];
@@ -609,7 +611,7 @@ birthdayAudio.addEventListener('pause', () => {
   document.querySelector('.music-player').classList.remove('playing');
 });
 birthdayAudio.addEventListener('error', () => {
-  musicStatus.textContent = 'Audio could not be loaded. Choose a supported MP3, OGG, WAV, or M4A file.';
+  musicStatus.textContent = 'Audio could not be loaded. Check your connection or choose another song.';
 });
 document.getElementById('music-volume').addEventListener('input', (event) => {
   birthdayAudio.volume = Number(event.target.value);
@@ -638,9 +640,11 @@ document.getElementById('replay-button').addEventListener('click', () => {
   birthdayAudio.load();
   if (chosenMusicUrl) URL.revokeObjectURL(chosenMusicUrl);
   chosenMusicUrl = '';
-  musicToggle.disabled = true;
-  musicTitle.textContent = 'Bring your own song';
-  musicStatus.textContent = 'Choose an MP3 you own or have permission to use.';
+  birthdayAudio.src = defaultMusicUrl;
+  birthdayAudio.load();
+  musicToggle.disabled = false;
+  musicTitle.textContent = 'Inkem Inkem Inkem Kaavaale';
+  musicStatus.textContent = 'Press play to listen here.';
   document.querySelector('.music-player').classList.remove('playing');
   uploadedPhotoUrls.forEach((source) => URL.revokeObjectURL(source));
   uploadedPhotoUrls.length = 0;

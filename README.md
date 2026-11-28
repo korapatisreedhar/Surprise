@@ -15,6 +15,7 @@ A romantic, responsive surprise website served locally with Python and Flask. Th
 - Interactive envelope, the existing four-digit passcode, and a cinematic birthday reveal with lights, a banner, dancers, drummers, cake, candles, confetti, and fireworks.
 - Long, responsive birthday story with a November 2026 calendar and live countdown to November 30.
 - Three scrapbook-style photo chapters featuring all 11 supplied photos in `assets/photos/`, a full-screen photo viewer, and session-only photo uploads.
+- A featured original scrapbook photo in the final birthday note, plus an in-page Telugu romantic song preview with a supplied-photo collage, volume control, and optional local song upload.
 - An editable love letter, a local-file music player, an interactive candle wish, and a replayable final surprise.
 - Reduced-motion support and keyboard-accessible controls.
 - Full-screen animated fireworks with colorful rockets, glowing trails, and sparks.
