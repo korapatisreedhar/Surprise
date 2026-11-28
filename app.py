@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from flask import Flask, abort, send_from_directory
 
@@ -14,9 +15,16 @@ def index():
 
 @app.get("/<path:filename>")
 def site_file(filename):
-    if filename not in {"styles.css", "fireworks.css", "script.js"}:
-        abort(404)
-    return send_from_directory(BASE_DIR, filename)
+    if filename in {"styles.css", "fireworks.css", "script.js"}:
+        return send_from_directory(BASE_DIR, filename)
+
+    if re.fullmatch(r"assets/photos/memory-\d{2}\.jpg", filename):
+        return send_from_directory(BASE_DIR / "assets" / "photos", filename.rsplit("/", 1)[-1])
+
+    if re.fullmatch(r"assets/music/[A-Za-z0-9][A-Za-z0-9._-]*\.(mp3|ogg|wav|m4a)", filename, re.IGNORECASE):
+        return send_from_directory(BASE_DIR / "assets" / "music", filename.rsplit("/", 1)[-1])
+
+    abort(404)
 
 
 if __name__ == "__main__":
