@@ -9,13 +9,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261128.4" />
+  <link rel="stylesheet" href="styles.css?v=20261128.6" />
   <link rel="stylesheet" href="fireworks.css" />
 </head>
 <body>
   <canvas id="fireworks" aria-hidden="true"></canvas>
   <div class="ambient-glow" aria-hidden="true"></div>
-  <div id="envelope-screen" class="screen envelope-screen">
+  <main id="birthday-gate" class="screen birthday-gate" aria-labelledby="birthday-gate-title">
+    <section class="birthday-gate-card">
+      <span class="eyebrow">A LITTLE SURPRISE IS WAITING</span>
+      <h1 id="birthday-gate-title">Advance Happy Birthday!</h1>
+      <p class="birthday-gate-love">With love, Eshi <span aria-hidden="true">♥</span></p>
+      <div id="birthday-gate-countdown" class="birthday-gate-countdown" role="timer" aria-live="off" aria-label="Time until November 30 at midnight">
+        <span><strong id="gate-countdown-days">--</strong><small>Days</small></span>
+        <span><strong id="gate-countdown-hours">--</strong><small>Hours</small></span>
+        <span><strong id="gate-countdown-minutes">--</strong><small>Minutes</small></span>
+        <span><strong id="gate-countdown-seconds">--</strong><small>Seconds</small></span>
+      </div>
+    </section>
+  </main>
+  <div id="envelope-screen" class="screen envelope-screen hidden">
     <div class="envelope-petals" aria-hidden="true"><span>✿</span><span>✿</span><span>✿</span><span>✿</span><span>✿</span><span>✿</span></div>
     <div class="envelope-wrap">
       <span class="eyebrow">A LITTLE SOMETHING JUST FOR YOU <span class="pulse-heart">♥</span></span>
@@ -35,7 +48,7 @@
       </div>
       <p class="tap-note">Tap the seal to open your letter</p>
     </div>
-    <div class="bottom-note">SEALED WITH LOVE · NOVEMBER 30, 2026</div>
+    <div class="bottom-note">WITH LOVE, ESHI · NOVEMBER 30, 2026</div>
   </div>
   <main id="lock-screen" class="screen birthday-screen hidden">
     <div class="stars" aria-hidden="true"></div>
@@ -360,6 +373,6 @@
     <button class="viewer-nav viewer-next" type="button" aria-label="Next photo">›</button>
     <p class="viewer-count" aria-live="polite"></p>
   </dialog>
-  <script src="script.js?v=20261128.3"></script>
+  <script src="script.js?v=20261128.4"></script>
 </body>
 </html>

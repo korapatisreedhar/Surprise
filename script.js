@@ -12,11 +12,38 @@ const pinKeypad = document.getElementById('pin-keypad');
 const pinFeedback = document.getElementById('pin-feedback');
 const celebrationCanvas = document.getElementById('fireworks');
 const UNLOCK_CODE = '1330';
+const BIRTHDAY_YEAR = 2026;
+const BIRTHDAY_MONTH = 10;
+const BIRTHDAY_DAY = 30;
+const birthdayGate = document.getElementById('birthday-gate');
+const birthdayGateTarget = new Date(BIRTHDAY_YEAR, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0, 0, 0);
 let enteredCode = '';
 let isUnlocked = false;
 let startFireworks = () => {};
 let stopFireworks = () => {};
 let triggerFinale = () => {};
+
+function updateBirthdayGate() {
+  const remainingMilliseconds = birthdayGateTarget.getTime() - Date.now();
+  if (remainingMilliseconds <= 0) {
+    birthdayGate.classList.add('hidden');
+    envelopeScreen.classList.remove('hidden');
+    return false;
+  }
+
+  const totalSeconds = Math.ceil(remainingMilliseconds / 1000);
+  document.getElementById('gate-countdown-days').textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, '0');
+  document.getElementById('gate-countdown-hours').textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
+  document.getElementById('gate-countdown-minutes').textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  document.getElementById('gate-countdown-seconds').textContent = String(totalSeconds % 60).padStart(2, '0');
+  return true;
+}
+
+if (updateBirthdayGate()) {
+  const birthdayGateTimer = window.setInterval(() => {
+    if (!updateBirthdayGate()) window.clearInterval(birthdayGateTimer);
+  }, 1000);
+}
 
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -317,9 +344,6 @@ enterPasscodeButton.addEventListener('click', () => {
 const birthdayCalendar = document.getElementById('birthday-calendar');
 const birthdayCountdown = document.getElementById('birthday-countdown');
 const countdownMessage = document.getElementById('countdown-message');
-const BIRTHDAY_YEAR = 2026;
-const BIRTHDAY_MONTH = 10;
-const BIRTHDAY_DAY = 30;
 
 function renderBirthdayCalendar() {
   const firstWeekday = new Date(BIRTHDAY_YEAR, BIRTHDAY_MONTH, 1).getDay();

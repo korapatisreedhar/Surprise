@@ -250,6 +250,17 @@ body{background:#09070d;color:#fff4ea}
 button,input{font:inherit}
 button:focus-visible,a:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid #ffe3a7;outline-offset:4px}
 .envelope-screen{z-index:3;min-height:100svh;background:radial-gradient(ellipse at 50% 45%,#471b33 0%,#1d0d1d 46%,#09070d 100%)}
+.birthday-gate{z-index:4;display:grid;place-items:center;overflow:hidden;min-height:100svh;padding:32px 20px 76px;background:radial-gradient(ellipse at 50% 42%,#211521 0%,#0b090f 62%,#030305 100%);text-align:center}
+.birthday-gate::before{position:absolute;inset:0;background:radial-gradient(circle at 16% 25%,#f4d7a122 1px,transparent 2px),radial-gradient(circle at 83% 30%,#f4d7a122 1px,transparent 2px),radial-gradient(circle at 27% 78%,#ef83aa22 1px,transparent 2px),radial-gradient(circle at 75% 73%,#f4d7a122 1px,transparent 2px);content:"";pointer-events:none}
+.birthday-gate-card{position:relative;z-index:1;width:min(760px,100%);padding:clamp(30px,7vw,68px) clamp(20px,5vw,48px);border:1px solid #e6c78255;border-radius:28px;background:linear-gradient(145deg,#211522d9,#0c0a10e8);box-shadow:0 28px 90px #000b,0 0 52px #e8be7215}
+.birthday-gate-card .eyebrow{color:#f0d7a2}
+.birthday-gate-card h1{margin:22px 0 8px;color:#fff0df;font:500 clamp(2.2rem,7vw,4.4rem)/1.12 'Playfair Display',serif}
+.birthday-gate-love{margin:8px 0 20px;color:#ffb5c9;font:italic clamp(1.35rem,4vw,2rem) 'Playfair Display',serif}
+.birthday-gate-love span{color:#ef83aa}
+.birthday-gate-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(7px,2vw,14px);width:min(580px,100%);margin:30px auto 0}
+.birthday-gate-countdown>span{display:grid;justify-items:center;gap:7px;padding:clamp(12px,3vw,20px) 6px;border:1px solid #ffe2bd24;border-radius:14px;background:#05040899}
+.birthday-gate-countdown strong{color:#ffe1a6;font:600 clamp(1.35rem,5vw,2.5rem) 'DM Sans',sans-serif;font-variant-numeric:tabular-nums}
+.birthday-gate-countdown small{color:#c7aeb0;font-size:.67rem;text-transform:uppercase;letter-spacing:.12em}
 .envelope-screen::before{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,#f2bd6920,transparent 42%);content:""}
 .envelope-wrap{width:min(92vw,620px);padding:30px 20px}
 .envelope-wrap>.eyebrow{color:#f3d9bd;line-height:1.8}
